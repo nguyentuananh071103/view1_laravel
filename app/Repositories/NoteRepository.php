@@ -17,4 +17,14 @@ class NoteRepository extends BaseRepository implements BaseRepositoryInterface
             'content' => $data->input("content")
         ]);
     }
+
+    public function search($request)
+    {
+        if ($request->searchNote !== null) {
+            return DB::table($this->table)->where("category","like",'%'. $request->searchNote.'%')->get();
+        }else{
+            return DB::table($this->table)->get();
+        }
+
+    }
 }

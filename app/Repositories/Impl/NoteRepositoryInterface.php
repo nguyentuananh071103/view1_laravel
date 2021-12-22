@@ -7,4 +7,5 @@ use App\Repositories\Impl;
 interface NoteRepositoryInterface extends BaseRepositoryInterface
 {
     public function create($data);
+    public function search($request);
 }
